@@ -3,9 +3,15 @@ package pe.edu.upeu.spring.entities.documentos;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 public class MvDetalle {
 	
@@ -21,5 +27,15 @@ public class MvDetalle {
 	@Column
 	@Temporal(TemporalType.TIME)
 	private Date hora;
+	
+	@NotFound(action = NotFoundAction.IGNORE)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="MEN_ID",nullable = false)
+	private Mensaje idmensaje;
+	
+	@NotFound(action = NotFoundAction.IGNORE)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="VIA_ID",nullable = false)
+	private Viaje idviaje;
 
 }
