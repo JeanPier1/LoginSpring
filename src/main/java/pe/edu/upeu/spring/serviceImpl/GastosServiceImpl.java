@@ -25,7 +25,11 @@ public class GastosServiceImpl implements GastosService{
 
 	@Override
 	public Gastos editar(Gastos per) {
-		// TODO Auto-generated method stub
+		try {
+			return gd.save(per);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return null;
 	}
 
@@ -44,6 +48,11 @@ public class GastosServiceImpl implements GastosService{
 	@Override
 	public List<Gastos> listar() {
 		// TODO Auto-generated method stub
+		try {
+			return (List<Gastos>)gd.findAll();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return null;
 	}
 	}

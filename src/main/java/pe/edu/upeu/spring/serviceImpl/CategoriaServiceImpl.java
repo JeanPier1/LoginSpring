@@ -1,5 +1,7 @@
 package pe.edu.upeu.spring.serviceImpl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,12 @@ public class CategoriaServiceImpl implements CategoriaService {
 			// TODO: handle exception
 			return null;
 		}
+	}
+
+	@Override
+	public List<Categoria> Lisall() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
