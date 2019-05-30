@@ -41,4 +41,66 @@ public class Usuario {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="per_id",nullable = false)
 	private Persona idpersona;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public Persona getIdpersona() {
+		return idpersona;
+	}
+
+	public void setIdpersona(Persona idpersona) {
+		this.idpersona = idpersona;
+	}
+
+	public Usuario() {
+		super();
+	}
+
+	public Usuario(String nombre, String password) {
+		super();
+		this.nombre = nombre;
+		this.password = password;
+	}
+	
+	
+	
+	
 }

@@ -59,4 +59,14 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 
+	@Override
+	public Usuario findByUsuario(String nombre, String password) {
+		try {
+			return us.findByUsuario(nombre, password);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+
 }

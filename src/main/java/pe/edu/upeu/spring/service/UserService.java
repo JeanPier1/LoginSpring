@@ -11,5 +11,6 @@ public interface UserService {
 	Usuario buscar(Long id);
 	List<Usuario> listar();
 	
+	Usuario findByUsuario( String  nombre,String password);
 
 }
