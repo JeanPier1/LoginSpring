@@ -49,5 +49,106 @@ public class Viaje {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="USU_ID",nullable = false)
 	private Usuario idusuario;
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getMotivo() {
+		return motivo;
+	}
+
+
+	public void setMotivo(String motivo) {
+		this.motivo = motivo;
+	}
+
+
+	public Date getFechainicio() {
+		return fechainicio;
+	}
+
+
+	public void setFechainicio(Date fechainicio) {
+		this.fechainicio = fechainicio;
+	}
+
+
+	public Date getFechafin() {
+		return fechafin;
+	}
+
+
+	public void setFechafin(Date fechafin) {
+		this.fechafin = fechafin;
+	}
+
+
+	public int getPresupuesto() {
+		return presupuesto;
+	}
+
+
+	public void setPresupuesto(int presupuesto) {
+		this.presupuesto = presupuesto;
+	}
+
+
+	public String getEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+
+	public Usuario getIdusuario() {
+		return idusuario;
+	}
+
+
+	public void setIdusuario(Usuario idusuario) {
+		this.idusuario = idusuario;
+	}
+
+
+	public Viaje() {
+		super();
+	}
+
+
+	public Viaje(String motivo, Date fechainicio, Date fechafin, int presupuesto, String estado, Usuario idusuario) {
+		super();
+		this.motivo = motivo;
+		this.fechainicio = fechainicio;
+		this.fechafin = fechafin;
+		this.presupuesto = presupuesto;
+		this.estado = estado;
+		this.idusuario = idusuario;
+	}
+
+
+	public Viaje(Long id, String motivo, Date fechainicio, Date fechafin, int presupuesto, String estado,
+			Usuario idusuario) {
+		super();
+		this.id = id;
+		this.motivo = motivo;
+		this.fechainicio = fechainicio;
+		this.fechafin = fechafin;
+		this.presupuesto = presupuesto;
+		this.estado = estado;
+		this.idusuario = idusuario;
+	}
+	
+	
 	
 }

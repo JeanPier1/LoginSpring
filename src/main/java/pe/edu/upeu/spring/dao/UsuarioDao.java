@@ -7,5 +7,4 @@ import pe.edu.upeu.spring.entities.Login.Usuario;
 
 public interface UsuarioDao extends JpaRepository<Usuario, Long> {
 
-	Usuario findByUsuario( String  nombre,String password);
 }

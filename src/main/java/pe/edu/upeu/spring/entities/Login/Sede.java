@@ -12,7 +12,7 @@ public class Sede {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="area_id")
+	@Column(name="se_id")
 	private Long id;
 	
 	@Column(name="nomnbre")

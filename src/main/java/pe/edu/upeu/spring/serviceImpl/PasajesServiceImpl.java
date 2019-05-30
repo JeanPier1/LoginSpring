@@ -2,12 +2,17 @@ package pe.edu.upeu.spring.serviceImpl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import pe.edu.upeu.spring.dao.PasajesDao;
 import pe.edu.upeu.spring.entities.documentos.Pasajes;
 import pe.edu.upeu.spring.service.PasajesService;
 
+@Service
+@Transactional
 public class PasajesServiceImpl implements PasajesService{
 
 	@Autowired

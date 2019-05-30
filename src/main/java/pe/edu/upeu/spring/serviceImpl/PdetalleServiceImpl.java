@@ -1,10 +1,15 @@
 package pe.edu.upeu.spring.serviceImpl;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import pe.edu.upeu.spring.entities.documentos.Pdetalle;
 import pe.edu.upeu.spring.service.PdetalleService;
 
+@Service
+@Transactional
 public class PdetalleServiceImpl implements PdetalleService {
 
 	@Autowired

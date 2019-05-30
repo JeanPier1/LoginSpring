@@ -1,5 +1,7 @@
 package pe.edu.upeu.spring.serviceImpl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,16 @@ public class ViajeServiceImpl implements ViajeService{
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);
+		}
+		return null;
+	}
+
+	@Override
+	public List<Viaje> readll() {
+		try {
+			return viajeD.findAll();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return null;
 	}
