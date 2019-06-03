@@ -29,10 +29,10 @@ import pe.edu.upeu.spring.service.PresupuestoService;
 import pe.edu.upeu.spring.service.ViajeService;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/entro")
 public class MainController {
 	
-
+	
 	
 	@Autowired
 	private GastosService gasser;
@@ -55,6 +55,8 @@ public class MainController {
 	
 	@Autowired
 	private PresupuestoService presu;
+	
+		
 	
 	
 	@GetMapping("/listGastos")
