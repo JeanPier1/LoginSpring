@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +29,7 @@ import pe.edu.upeu.spring.service.PdetalleService;
 import pe.edu.upeu.spring.service.PresupuestoService;
 import pe.edu.upeu.spring.service.ViajeService;
 
+@CrossOrigin(origins= {"http://localhost:4200"})
 @RestController
 @RequestMapping("/entro")
 public class MainController {
@@ -56,7 +58,8 @@ public class MainController {
 	@Autowired
 	private PresupuestoService presu;
 	
-		
+	@Autowired
+	private PasajesService passer;
 	
 	
 	@GetMapping("/listGastos")
@@ -110,5 +113,14 @@ public class MainController {
 	@PostMapping("/crearPresupuesto")
 	public Presupuesto crearPro(@RequestBody Presupuesto pres){
 		return presu.crear(pres);
+	}
+	@GetMapping("/listarPasa")
+	public List<Pasajes> lisar(){
+		return passer.Listall();
+	}
+	@PostMapping("/crearPasaj")
+	public Pasajes crearpo(@RequestBody Pasajes pas) {
+		System.out.println("Hola Mundp");
+		return passer.crear(pas);
 	}
 }

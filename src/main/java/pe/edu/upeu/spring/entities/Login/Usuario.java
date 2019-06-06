@@ -1,7 +1,9 @@
 package pe.edu.upeu.spring.entities.Login;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,12 +11,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+
 
 
 @Entity
@@ -25,8 +31,8 @@ public class Usuario {
 	@Column(name="usu_id")
 	private Long id;
 	
-	@Column(name="nomnbre")
-	private String nombre;
+	@Column(name="username")
+	private String username;
 
 	@Column(name="password")
 	private String password;
@@ -42,6 +48,16 @@ public class Usuario {
 	@JoinColumn(name="per_id",nullable = false)
 	private Persona idpersona;
 
+	private Boolean enable;
+
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="users_authorities", joinColumns = @JoinColumn(name="user_id"), 
+	inverseJoinColumns = @JoinColumn(name="role_id"),
+	uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id"})})
+	private List<Rol> roles;
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -50,12 +66,12 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -89,18 +105,26 @@ public class Usuario {
 	public void setIdpersona(Persona idpersona) {
 		this.idpersona = idpersona;
 	}
+	
+	
 
-	public Usuario() {
-		super();
+	public List<Rol> getRoles() {
+		return roles;
 	}
 
-	public Usuario(String nombre, String password) {
-		super();
-		this.nombre = nombre;
-		this.password = password;
+	
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
 	}
 	
 	
-	
+
+	public Boolean getEnable() {
+		return enable;
+	}
+
+	public void setEnable(Boolean enable) {
+		this.enable = enable;
+	}
 	
 }

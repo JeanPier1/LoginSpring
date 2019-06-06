@@ -32,7 +32,7 @@ public class PasajesServiceImpl implements PasajesService{
 	@Override
 	public List<Pasajes> Listall() {
 		// TODO Auto-generated method stub
-		return null;
+		return pasdao.findAll();
 	}
 
 }
